@@ -1,0 +1,59 @@
+---
+const { settings } = Astro.props
+---
+
+<footer class="@container bs-container mt-20 mb-12 font-medium text-bs-foreground-dark [&_a]:hover:text-bs-foreground-light [&_a]:transition-color [&_a]:duration-150" id="footer">
+
+  <!-- Divider -->
+  <div class="h-px bg-bs-border mb-12"></div>
+
+  <!-- Wrapper -->
+  <div class="grid md:grid-cols-2 gap-10">
+
+      <!-- Left col -->
+      <div class="flex flex-col gap-6">
+        <!-- Logo -->
+        <a class="flex items-center gap-3 group" href="#top" aria-label="Back to top">
+          <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
+          <span class="text-base font-bold tracking-wider text-bs-foreground-light">TRIATO</span>
+        </a>
+
+        <!-- Tagline -->
+        <p class="text-sm text-bs-foreground-muted">행동이 시작되는 곳</p>
+
+        <!-- CTA Button -->
+        <button type="button" class="bs-btn text-sm px-4 py-3 self-start border border-bs-border hover:border-bs-border-hover bg-transparent" onclick="demo.showModal()">
+          { settings.demo.cta }
+        </button>
+      </div>
+
+      <!-- Right col -->
+      <div class="flex gap-16 md:justify-end text-sm [&_a]:block [&_a]:py-1.5">
+        <!-- Nav -->
+        <nav class="flex flex-col">
+          <span class="text-bs-foreground-muted text-xs uppercase tracking-wider mb-3 font-semibold">메뉴</span>
+          { settings.nav.sort((a,b) => a.title.localeCompare(b.title)).map( item =>
+            <a href={ item.link }>
+              { item.title }
+            </a>
+          )}
+        </nav>
+
+        <!-- Contact -->
+        <nav class="flex flex-col">
+          <span class="text-bs-foreground-muted text-xs uppercase tracking-wider mb-3 font-semibold">연락처</span>
+          <a href="mailto:bjho@triato.co.kr">bjho@triato.co.kr</a>
+          <a href="tel:01072071394">010-7207-1394</a>
+        </nav>
+      </div>
+  </div>
+
+  <!-- Colophon -->
+  <aside class="mt-16">
+    <div class="h-px bg-bs-border mb-6"></div>
+    <nav class="flex flex-col sm:flex-row gap-3 justify-between items-center text-xs text-bs-foreground-muted">
+      <span>대표: 호병준 | TRIATO</span>
+      <span>&copy; 2026 TRIATO. All rights reserved.</span>
+    </nav>
+  </aside>
+</footer>

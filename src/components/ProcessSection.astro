@@ -1,0 +1,59 @@
+---
+const { title, process } = Astro.props
+
+const stepColors = [
+  { bg: 'bg-bs-accent/10', text: 'text-bs-accent', border: 'border-bs-accent/15' },
+  { bg: 'bg-bs-purple/10', text: 'text-bs-purple', border: 'border-bs-purple/15' },
+  { bg: 'bg-bs-warm/10', text: 'text-bs-warm', border: 'border-bs-warm/15' },
+]
+
+const stepIcons = [
+  // Crosshair / target
+  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>`,
+  // Pen tool
+  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>`,
+  // Rocket
+  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`,
+]
+---
+
+<section class="bs-mt-lg relative" id="process">
+  <!-- Section background -->
+  <div class="absolute inset-0 bg-bs-surface-alt -z-1"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-bs-surface-0 via-transparent to-bs-surface-0 -z-1"></div>
+
+  <div class="bs-container py-16 lg:py-24">
+    <!-- Header -->
+    {title && <h2 class="bs-h2 text-center">{title}</h2>}
+
+    <!-- Process steps -->
+    <div class="bs-mt-md grid lg:grid-cols-3 gap-8 lg:gap-6">
+      {process.map((item, index) => (
+        <article class={`relative rounded-xl border ${stepColors[index].border} bg-bs-surface-1/60 p-8 md:p-10 flex flex-col gap-5 group hover:border-opacity-30 transition-colors duration-300`}>
+          {/* Icon */}
+          <div class={`w-12 h-12 rounded-xl ${stepColors[index].bg} flex items-center justify-center ${stepColors[index].text}`}>
+            <Fragment set:html={stepIcons[index]} />
+          </div>
+
+          {/* Step label */}
+          <span class={`text-xs font-medium tracking-widest uppercase ${stepColors[index].text}`}>{item.subtitle}</span>
+
+          {/* Title */}
+          <h3 class="text-2xl font-semibold">{item.title}</h3>
+
+          {/* Content */}
+          <p class="bs-body-text text-bs-foreground-dark flex-1 text-sm leading-relaxed">{item.content}</p>
+
+          {/* Arrow connector (desktop) */}
+          {index < process.length - 1 && (
+            <div class="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10">
+              <svg class="w-5 h-5 text-bs-foreground-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

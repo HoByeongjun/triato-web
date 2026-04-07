@@ -1,0 +1,23 @@
+[
+  {
+    "step": "01",
+    "title": "Trigger",
+    "subtitle": "문제를 정의합니다",
+    "content": "고객의 니즈와 비즈니스 과제를 분석하여 해결할 핵심 포인트를 찾습니다. 무엇을 왜 만들어야 하는지 명확히 합니다.",
+    "color": "from-bs-accent to-bs-mid"
+  },
+  {
+    "step": "02",
+    "title": "Design",
+    "subtitle": "솔루션을 설계합니다",
+    "content": "최적의 기술 스택과 아키텍처를 선정하고 프로토타입을 제작합니다. 사용자 경험을 중심으로 설계합니다.",
+    "color": "from-bs-mid to-bs-navy"
+  },
+  {
+    "step": "03",
+    "title": "Action",
+    "subtitle": "실행합니다",
+    "content": "애자일 방식으로 빠르게 개발하고, 테스트하고, 배포하여 실제 가치를 전달합니다. 아이디어에서 배포까지, 민첩하게.",
+    "color": "from-bs-navy to-bs-accent"
+  }
+]

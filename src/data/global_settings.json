@@ -1,0 +1,40 @@
+{
+  "title": "TRIATO | 행동이 시작되는 곳",
+  "description": "TRIATO는 자동화 프로젝트와 앱 개발을 통해 비즈니스의 행동을 시작합니다. AI 기반 업무 자동화부터 맞춤 소프트웨어 개발까지.",
+  "social_image": "/logo.png",
+  "base_url": "https://triato.co.kr",
+  "demo": {
+    "title": "프로젝트 문의",
+    "content": "<strong>프로젝트에 대해 이야기해 주세요.</strong> 어떤 문제를 해결하고 싶은지, 어떤 시스템이 필요한지 알려주시면 빠르게 답변 드리겠습니다.",
+    "cta": "문의하기"
+  },
+  "theme_color": "#06111F",
+  "nav": [
+    {
+      "title": "서비스",
+      "link": "/#services"
+    },
+    {
+      "title": "프로세스",
+      "link": "/#process"
+    },
+    {
+      "title": "FAQ",
+      "link": "/#faq"
+    },
+    {
+      "title": "연락처",
+      "link": "/#contact"
+    }
+  ],
+  "social_links": [
+    {
+      "title": "이메일",
+      "link": "mailto:bjho@triato.co.kr"
+    },
+    {
+      "title": "전화",
+      "link": "tel:01072071394"
+    }
+  ]
+}

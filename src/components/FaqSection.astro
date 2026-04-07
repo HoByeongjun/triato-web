@@ -1,0 +1,29 @@
+---
+
+import DetailsAccordion from "./DetailsAccordion.astro"
+
+const { title, faq } = Astro.props
+
+---
+
+<section class="bs-mt-lg relative" id="faq">
+  <!-- Subtle section background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bs-surface-alt/50 to-transparent -z-1"></div>
+
+  <div class="bs-container py-16 lg:py-20 grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
+
+    <!-- Left: Title -->
+    <div class="lg:sticky lg:top-24">
+      { title && <h2 class="bs-h2" set:html={ title } />}
+      <p class="text-bs-foreground-dark mt-4 text-sm leading-relaxed">궁금한 점이 있으시면 언제든 연락주세요.</p>
+    </div>
+
+    <!-- Right: FAQ items -->
+    <div class="grid gap-2">
+      { faq.map( item =>
+        <DetailsAccordion question={item.question} answer={item.answer} />
+      )}
+    </div>
+
+  </div>
+</section>

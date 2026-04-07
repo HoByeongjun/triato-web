@@ -1,0 +1,97 @@
+---
+import '../assets/css/global.css'
+import '../assets/css/base.css'
+import '../assets/css/typography.css'
+import '../assets/css/layout.css'
+import '../assets/css/buttons.css'
+
+import { Image } from 'astro:assets'
+import bg_image from '../assets/theme-images/hero-image.jpg'
+
+import global_settings from '../data/global_settings.json'
+
+import DialogModal from '../components/DialogModal.astro'
+import FooterMain from '../components/FooterMain.astro'
+import HeaderMain from '../components/HeaderMain.astro'
+
+const { title, description } = Astro.props
+---
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title ?? global_settings.title}</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta name="description" content={description ?? global_settings.description} />
+    <meta name="theme-color" content={global_settings.theme_color} />
+    <link rel="canonical" href={`https://triato.co.kr${Astro.url.pathname}`} />
+
+    <meta property="og:title" content={title ?? global_settings.title} />
+    <meta property="og:description" content={description ?? global_settings.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TRIATO",
+      "url": "https://triato.co.kr",
+      "logo": "https://triato.co.kr/logo.png",
+      "description": "자동화 프로젝트 & 앱 개발. 행동이 시작되는 곳, TRIATO.",
+      "email": "bjho@triato.co.kr",
+      "telephone": "+82-10-7207-1394",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KR"
+      }
+    })} />
+  </head>
+
+  <body id="top" class="antialiased" style="font-family: 'Pretendard Variable', 'Pretendard', var(--font-body)">
+    <!-- Skip link -->
+    <a class="fixed -top-20 focus-visible:top-0 p-3 bg-black/90 transition-all duration-300" href="#main">본문으로 건너뛰기</a>
+
+    <!-- bg image -->
+    <Image src={bg_image} alt="" format="avif" height={1080} width={1920} class="absolute min-h-svh object-cover inset-0 bottom-auto -z-1 w-full h-auto opacity-10 mask-b-from-50%" loading="eager" />
+
+    <!-- Background glow effects -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden -z-1" aria-hidden="true">
+      <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full bg-[radial-gradient(ellipse,rgba(0,200,232,0.06)_0%,transparent_70%)]"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[500px] max-h-[500px] rounded-full bg-[radial-gradient(ellipse,rgba(15,45,120,0.1)_0%,transparent_70%)]"></div>
+    </div>
+
+    <!-- Header -->
+    <HeaderMain settings={global_settings} />
+
+    <!-- Main slot -->
+    <main id="main">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <FooterMain settings={global_settings} />
+
+    <!-- Demo dialog modal -->
+    <DialogModal id="demo" content={global_settings.demo} />
+  </body>
+</html>

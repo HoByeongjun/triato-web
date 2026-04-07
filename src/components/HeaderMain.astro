@@ -1,0 +1,32 @@
+---
+import Logo from '../assets/theme-images/logo.svg'
+
+const { settings } = Astro.props
+---
+
+<header class="wrapper font-medium">
+  <!-- Wrapper -->
+  <div class="bs-container py-5 flex justify-between items-center">
+    <!-- Logo -->
+    <a class="flex items-center gap-2.5 group" href="/" aria-label="TRIATO - Home">
+      <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain group-hover:scale-95 transition-transform duration-200" />
+      <span class="text-base font-bold tracking-wider text-bs-foreground-light hidden sm:block">TRIATO</span>
+    </a>
+
+    <!-- Nav -->
+    <nav class="hidden md:flex mx-auto self-stretch gap-1">
+      {
+        settings.nav.map((item) => (
+          <a class="px-4 py-2 text-sm text-bs-foreground-dark hover:text-bs-foreground-light transition-colors rounded-lg" href={item.link}>
+            {item.title}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- CTA -->
+    <button type="button" class="bs-btn text-sm px-4 py-2.5 bg-bs-accent text-bs-surface-0 font-semibold hover:bg-[#00b5d3]" onclick="demo.showModal()">
+      {settings.demo.title}
+    </button>
+  </div>
+</header>

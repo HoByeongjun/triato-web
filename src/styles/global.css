@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan: #00C8E8;
+  --color-navy: #0F2D78;
+  --color-mid: #1A6FBF;
+  --color-bg: #06111F;
+  --color-bg-card: #0B1A2E;
+  --color-bg-card-hover: #0F2238;
+  --color-text: #E8F4FF;
+  --color-muted: #6B8BAE;
+  --color-border: rgba(0, 200, 232, 0.12);
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(0, 200, 232, 0.3);
+  color: #fff;
+}

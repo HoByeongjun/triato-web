@@ -1,0 +1,97 @@
+---
+import Arrow from '../assets/theme-images/icon-arrow.svg'
+
+const { title, services } = Astro.props
+
+const gradients = [
+  'from-bs-accent/10 via-bs-purple/5 to-transparent',
+  'from-bs-purple/10 via-bs-mid/5 to-transparent',
+  'from-bs-warm/8 via-bs-accent/4 to-transparent',
+  'from-bs-green/8 via-bs-mid/4 to-transparent',
+  'from-bs-mid/10 via-bs-navy/5 to-transparent',
+]
+---
+
+<section id="services">
+  <!-- Header -->
+  <header class="bs-container flex items-center justify-between">
+    {title && <h2 class="bs-h2">{title}</h2>}
+
+    <!-- Buttons -->
+    <nav class="bs-st-button-wrapper flex justify-center gap-4">
+      <button aria-label="이전 슬라이드" class="js-fc-btn-prev group bs-btn rounded-full p-0! flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
+        <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-px" height="16" width="25" />
+      </button>
+      <button aria-label="다음 슬라이드" class="js-fc-btn-next group bs-btn rounded-full p-0! flex items-center justify-center h-10 w-10 md:h-12 md:w-12 -scale-x-100">
+        <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-px" height="16" width="25" />
+      </button>
+    </nav>
+  </header>
+
+  <!-- Slides -->
+  <div class="js-fc-swiper swiper select-none bs-mt-md">
+    <div class="swiper-wrapper">
+      {
+        [...services, ...services].map((item, i) => (
+          <div class="swiper-slide bg-bs-surface-1 border border-bs-border rounded-xl overflow-hidden h-auto!">
+            <figure class="flex flex-col gap-6 isolate min-h-[50svh] md:min-h-[40rem] h-full relative">
+              {/* Gradient BG */}
+              <div class={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]}`} />
+
+              <figcaption class="z-10 p-6 sm:p-10 md:p-20 max-w-xl flex flex-col gap-6 h-full">
+                {item.tag && (
+                  <span class="inline-block self-start px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase border border-bs-border text-bs-foreground-dark bg-bs-surface-2/50">
+                    {item.tag}
+                  </span>
+                )}
+                <h2 class="bs-h2" set:html={item.title} />
+                <div class="bs-body-text text-pretty flex-1" set:html={item.content} />
+                <button type="button" class="bs-btn inline-block self-start bs-mt-sm" onclick="demo.showModal()">
+                  {item.cta}
+                </button>
+              </figcaption>
+            </figure>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper'
+  import 'swiper/css'
+
+  const prev_btn = document.querySelector('.js-fc-btn-prev')
+  const next_btn = document.querySelector('.js-fc-btn-next')
+
+  const swiper = new Swiper('.js-fc-swiper', {
+    slidesPerView: 1.05,
+    spaceBetween: 8,
+    speed: 500,
+    loop: true,
+    centeredSlides: true,
+    breakpoints: {
+      '640': { slidesPerView: 1.2, spaceBetween: 32 },
+      '1600': { slidesPerView: 1.4, spaceBetween: 64 },
+      '1900': { slidesPerView: 1.6, spaceBetween: 64 },
+    },
+  })
+
+  prev_btn?.addEventListener('click', () => swiper.slidePrev())
+  next_btn?.addEventListener('click', () => swiper.slideNext())
+  swiper.init?.()
+</script>
+
+<style>
+  @keyframes show-buttons {
+    to { opacity: 1; }
+  }
+  @supports (animation-timeline: view()) {
+    .bs-st-button-wrapper {
+      opacity: 0;
+      animation: show-buttons linear forwards;
+      animation-timeline: view(20% block);
+    }
+  }
+</style>
