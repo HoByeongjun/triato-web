@@ -34,21 +34,23 @@ const { settings, title, content } = Astro.props
     </div>
 
     <!-- Visual element -->
-    <div class="flex-1 hidden lg:flex place-content-center lg:pl-8">
-      <div class="relative w-64 h-64 lg:w-80 lg:h-80">
-        <!-- Organic shape background -->
-        <div class="absolute inset-0 rounded-[40%_60%_55%_45%/50%_40%_60%_50%] bg-gradient-to-br from-bs-accent/4 via-bs-purple/3 to-transparent rotate-12"></div>
-        <!-- Grid pattern overlay -->
-        <div class="absolute inset-6 rounded-2xl border border-bs-border overflow-hidden">
-          <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(var(--color-bs-muted) 1px, transparent 1px), linear-gradient(90deg, var(--color-bs-muted) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="flex-1 hidden lg:flex place-content-end lg:pl-8">
+      <div class="relative w-full max-w-lg">
+        <!-- Main photo -->
+        <img
+          src="/images/hero-visual.jpg"
+          alt="TRIATO 개발팀 워크스페이스 — 노트북으로 작업 중인 개발자"
+          class="w-full rounded-2xl object-cover shadow-lg border border-bs-border"
+          style="aspect-ratio: 3/2;"
+        />
+        <!-- Accent corner decorations -->
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-bs-accent/8 -z-10"></div>
+        <div class="absolute -top-4 -left-4 w-16 h-16 rounded-xl bg-bs-navy/5 -z-10"></div>
+        <!-- Small floating badge -->
+        <div class="absolute -bottom-3 left-8 bg-white border border-bs-border rounded-xl px-4 py-2.5 shadow-card flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full bg-bs-accent"></span>
+          <span class="text-[13px] font-medium text-bs-text">AI + 풀스택</span>
         </div>
-        <!-- Center logo -->
-        <div class="absolute inset-10 rounded-2xl bg-white border border-bs-border flex items-center justify-center shadow-card">
-          <img src="/logo-symbol.png" alt="TRIATO" class="w-16 h-16 lg:w-20 lg:h-20 object-contain opacity-80" />
-        </div>
-        <!-- Accent dots -->
-        <div class="absolute top-8 right-6 w-2 h-2 rounded-full bg-bs-accent/40"></div>
-        <div class="absolute bottom-12 left-8 w-1.5 h-1.5 rounded-full bg-bs-warm/30"></div>
       </div>
     </div>
   </div>
