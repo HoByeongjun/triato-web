@@ -2,11 +2,13 @@
 @reference "./global.css";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: 2em;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  @apply bg-bs-surface-0 text-bs-foreground-light font-body selection:text-bs-surface-0 selection:bg-bs-accent;
+  @apply bg-bs-bg text-bs-text font-body selection:text-white selection:bg-bs-accent;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }

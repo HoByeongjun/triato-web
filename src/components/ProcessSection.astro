@@ -1,58 +1,38 @@
 ---
 const { title, process } = Astro.props
 
-const stepColors = [
-  { bg: 'bg-bs-accent/10', text: 'text-bs-accent', border: 'border-bs-accent/15' },
-  { bg: 'bg-bs-purple/10', text: 'text-bs-purple', border: 'border-bs-purple/15' },
-  { bg: 'bg-bs-warm/10', text: 'text-bs-warm', border: 'border-bs-warm/15' },
-]
-
-const stepIcons = [
-  // Crosshair / target
-  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>`,
-  // Pen tool
-  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>`,
-  // Rocket
-  `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`,
+const steps = [
+  { num: '01', title: '상담 & 기획', desc: '요구사항을 정확히 이해하고 범위와 일정을 확정합니다.' },
+  { num: '02', title: '개발 & 검증', desc: 'AI + 풀스택 팀이 스프린트 단위로 빠르게 만들어갑니다.' },
+  { num: '03', title: '런칭 & 운영', desc: '배포 후 안정화, 유지보수와 운영을 지원합니다.' },
 ]
 ---
 
-<section class="bs-mt-lg relative" id="process">
-  <!-- Section background -->
-  <div class="absolute inset-0 bg-bs-surface-alt -z-1"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-bs-surface-0 via-transparent to-bs-surface-0 -z-1"></div>
-
-  <div class="bs-container py-16 lg:py-24">
+<section class="bg-white" id="process">
+  <div class="bs-container py-20 lg:py-28">
     <!-- Header -->
-    {title && <h2 class="bs-h2 text-center">{title}</h2>}
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+      <h2 class="bs-h2">프로젝트 진행 방식</h2>
+      <p class="text-bs-body mt-4 text-base lg:text-lg leading-[1.7]">빠르고 투명하게, 처음부터 끝까지 함께.</p>
+    </div>
 
-    <!-- Process steps -->
-    <div class="bs-mt-md grid lg:grid-cols-3 gap-8 lg:gap-6">
-      {process.map((item, index) => (
-        <article class={`relative rounded-xl border ${stepColors[index].border} bg-bs-surface-1/60 p-8 md:p-10 flex flex-col gap-5 group hover:border-opacity-30 transition-colors duration-300`}>
-          {/* Icon */}
-          <div class={`w-12 h-12 rounded-xl ${stepColors[index].bg} flex items-center justify-center ${stepColors[index].text}`}>
-            <Fragment set:html={stepIcons[index]} />
+    <!-- Horizontal 3 steps -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative">
+      <!-- Connection line (desktop) -->
+      <div class="hidden lg:block absolute top-[30px] left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-[2px] border-t-2 border-dashed border-gray-200"></div>
+
+      {steps.map((step, i) => (
+        <div class="flex flex-col items-center text-center gap-4 relative">
+          <!-- Step number + dot -->
+          <div class="flex flex-col items-center gap-3">
+            <span class="text-[13px] font-semibold text-bs-accent tracking-[0.05em]">{step.num}</span>
+            <div class="w-3 h-3 rounded-full bg-bs-accent ring-[3px] ring-bs-accent/20 relative z-10"></div>
           </div>
 
-          {/* Step label */}
-          <span class={`text-xs font-medium tracking-widest uppercase ${stepColors[index].text}`}>{item.subtitle}</span>
-
-          {/* Title */}
-          <h3 class="text-2xl font-semibold">{item.title}</h3>
-
-          {/* Content */}
-          <p class="bs-body-text text-bs-foreground-dark flex-1 text-sm leading-relaxed">{item.content}</p>
-
-          {/* Arrow connector (desktop) */}
-          {index < process.length - 1 && (
-            <div class="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10">
-              <svg class="w-5 h-5 text-bs-foreground-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </div>
-          )}
-        </article>
+          <!-- Content -->
+          <h3 class="text-lg font-semibold text-bs-text mt-2">{step.title}</h3>
+          <p class="text-[15px] text-bs-body leading-[1.7] max-w-[280px]">{step.desc}</p>
+        </div>
       ))}
     </div>
   </div>

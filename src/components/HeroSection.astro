@@ -2,52 +2,54 @@
 const { settings, title, content } = Astro.props
 ---
 
-<section class="bs-container pt-8 pb-12 lg:pt-16 lg:pb-20 flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-16">
-  <!-- Content -->
-  <div class="flex flex-col gap-5 lg:max-w-2xl w-full">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-bs-border bg-bs-surface-2/60 text-sm text-bs-foreground-dark self-start">
-      <span class="w-1.5 h-1.5 rounded-full bg-bs-green"></span>
-      <span>Trigger</span>
-      <svg class="w-3.5 h-3.5 text-bs-foreground-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-      </svg>
-      <span>Action</span>
-    </div>
-
-    <!-- Title -->
-    <h1 class="bs-h1 [&_.text-bs-accent]:text-[var(--color-bs-accent)]" set:html={title} />
-
+<section class="bg-white">
+  <div class="bs-container pt-16 pb-20 lg:pt-24 lg:pb-28 flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-16">
     <!-- Content -->
-    <div class="bs-body-text xl:text-lg flex flex-col gap-3 text-bs-foreground-dark max-w-xl" set:html={content} />
+    <div class="flex flex-col gap-5 lg:max-w-2xl w-full">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-bs-border-accent bg-bs-accent-dim text-[13px] text-bs-body self-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-bs-accent"></span>
+        <span>Trigger</span>
+        <svg class="w-3.5 h-3.5 text-bs-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+        <span>Action</span>
+      </div>
 
-    <!-- CTA -->
-    <div class="flex gap-3 mt-4">
-      <button type="button" class="bs-btn self-start bg-bs-accent text-bs-surface-0 font-bold hover:bg-[#00b5d3]" onclick="demo.showModal()">
-        {settings.demo.cta}
-      </button>
-      <a href="/#services" class="bs-btn self-start border border-bs-border hover:border-bs-border-hover">
-        서비스 알아보기
-      </a>
+      <!-- Title -->
+      <h1 class="bs-h1" set:html={title} />
+
+      <!-- Content -->
+      <div class="text-base lg:text-lg leading-[1.7] text-bs-body max-w-[480px] flex flex-col gap-3" set:html={content} />
+
+      <!-- CTA -->
+      <div class="flex gap-3 mt-4">
+        <button type="button" class="bs-btn self-start bg-bs-navy text-white font-semibold px-7 py-3 rounded-lg hover:bg-bs-navy-hover hover:-translate-y-px" onclick="demo.showModal()">
+          {settings.demo.cta}
+        </button>
+        <a href="/#services" class="bs-btn self-start border-[1.5px] border-black/15 text-bs-text px-7 py-3 rounded-lg hover:border-black/30 hover:bg-black/2">
+          서비스 보기
+        </a>
+      </div>
     </div>
-  </div>
 
-  <!-- Visual element — abstract mesh, not typical AI rings -->
-  <div class="flex-1 flex place-content-center lg:pl-8">
-    <div class="relative w-64 h-64 lg:w-80 lg:h-80">
-      <!-- Organic shape background -->
-      <div class="absolute inset-0 rounded-[40%_60%_55%_45%/50%_40%_60%_50%] bg-gradient-to-br from-bs-accent/8 via-bs-purple/5 to-transparent rotate-12"></div>
-      <!-- Grid pattern overlay -->
-      <div class="absolute inset-6 rounded-2xl border border-bs-border overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(var(--color-bs-foreground-muted) 1px, transparent 1px), linear-gradient(90deg, var(--color-bs-foreground-muted) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <!-- Visual element -->
+    <div class="flex-1 hidden lg:flex place-content-center lg:pl-8">
+      <div class="relative w-64 h-64 lg:w-80 lg:h-80">
+        <!-- Organic shape background -->
+        <div class="absolute inset-0 rounded-[40%_60%_55%_45%/50%_40%_60%_50%] bg-gradient-to-br from-bs-accent/4 via-bs-purple/3 to-transparent rotate-12"></div>
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-6 rounded-2xl border border-bs-border overflow-hidden">
+          <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(var(--color-bs-muted) 1px, transparent 1px), linear-gradient(90deg, var(--color-bs-muted) 1px, transparent 1px); background-size: 24px 24px;"></div>
+        </div>
+        <!-- Center logo -->
+        <div class="absolute inset-10 rounded-2xl bg-white border border-bs-border flex items-center justify-center shadow-card">
+          <img src="/logo-symbol.png" alt="TRIATO" class="w-16 h-16 lg:w-20 lg:h-20 object-contain opacity-80" />
+        </div>
+        <!-- Accent dots -->
+        <div class="absolute top-8 right-6 w-2 h-2 rounded-full bg-bs-accent/40"></div>
+        <div class="absolute bottom-12 left-8 w-1.5 h-1.5 rounded-full bg-bs-warm/30"></div>
       </div>
-      <!-- Center logo -->
-      <div class="absolute inset-10 rounded-2xl bg-bs-surface-2/80 border border-bs-border flex items-center justify-center backdrop-blur-sm">
-        <img src="/logo-symbol.png" alt="TRIATO" class="w-16 h-16 lg:w-20 lg:h-20 object-contain opacity-70" />
-      </div>
-      <!-- Accent dot — singular, not multiple pulsing dots -->
-      <div class="absolute top-8 right-6 w-2 h-2 rounded-full bg-bs-accent/50"></div>
-      <div class="absolute bottom-12 left-8 w-1.5 h-1.5 rounded-full bg-bs-warm/40"></div>
     </div>
   </div>
 </section>

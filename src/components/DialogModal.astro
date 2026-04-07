@@ -4,35 +4,35 @@ import X from '../assets/theme-images/icon-x.svg'
 const { content } = Astro.props
 ---
 
-<dialog id="demo" closedby="any" class="fixed inset-0 bg-bs-surface-0 m-auto z-50 p-6 md:p-12 rounded-xl w-full max-w-[95%] md:max-w-lg">
+<dialog id="demo" closedby="any" class="fixed inset-0 bg-white m-auto z-50 p-6 md:p-12 rounded-xl w-full max-w-[95%] md:max-w-lg shadow-hover border border-bs-border">
   <!-- Form -->
   <form method="dialog" class="flex gap-6 flex-col">
     <!-- Header -->
-    <h2 class="text-2xl flex justify-between items-center gap-4">
+    <h2 class="text-2xl font-semibold text-bs-text flex justify-between items-center gap-4">
       <span>{content.title}</span>
 
-      <button onclick="this.closest('dialog').close('close')" aria-label="닫기" class="bs-btn rounded-full p-0! flex items-center justify-center h-10 w-10">
+      <button onclick="this.closest('dialog').close('close')" aria-label="닫기" class="rounded-full p-2 hover:bg-bs-bg-alt transition-colors text-bs-muted">
         <X class="scale-75 opacity-75" width="32" height="32" />
       </button>
     </h2>
 
     <!-- Content -->
     <div class="flex flex-col gap-4">
-      <div class="bs-body-text mb-3" set:html={content.content} />
+      <div class="text-bs-body text-sm mb-3 leading-[1.7] [&_strong]:text-bs-text [&_strong]:font-semibold" set:html={content.content} />
 
       <label class="sr-only" for="name">이름</label>
-      <input id="name" type="text" class="border-2 rounded-lg bg-bs-surface-0 border-bs-surface-3 form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors" placeholder="이름" />
+      <input id="name" type="text" class="border rounded-lg bg-white border-bs-border form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors text-bs-text placeholder:text-bs-muted" placeholder="이름" />
 
       <label class="sr-only" for="company">회사명</label>
-      <input id="company" type="text" class="border-2 rounded-lg bg-bs-surface-0 border-bs-surface-3 form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors" placeholder="회사명" />
+      <input id="company" type="text" class="border rounded-lg bg-white border-bs-border form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors text-bs-text placeholder:text-bs-muted" placeholder="회사명" />
 
       <label class="sr-only" for="email">이메일</label>
-      <input id="email" type="email" class="border-2 rounded-lg bg-bs-surface-0 border-bs-surface-3 form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors" placeholder="이메일" />
+      <input id="email" type="email" class="border rounded-lg bg-white border-bs-border form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors text-bs-text placeholder:text-bs-muted" placeholder="이메일" />
 
       <label class="sr-only" for="message">프로젝트 설명</label>
-      <textarea id="message" rows="3" class="border-2 rounded-lg bg-bs-surface-0 border-bs-surface-3 form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors resize-none" placeholder="어떤 프로젝트를 생각하고 계신가요?"></textarea>
+      <textarea id="message" rows="3" class="border rounded-lg bg-white border-bs-border form-input px-4 py-3 focus:border-bs-accent/50 focus:outline-none transition-colors resize-none text-bs-text placeholder:text-bs-muted" placeholder="어떤 프로젝트를 생각하고 계신가요?"></textarea>
 
-      <a href="mailto:bjho@triato.co.kr" class="bs-btn form-input px-4 py-3 bg-gradient-to-r from-[var(--color-bs-accent)] to-[var(--color-bs-mid)] text-bs-surface-0 font-bold">{content.cta}</a>
+      <a href="mailto:bjho@triato.co.kr" class="bs-btn form-input px-4 py-3 bg-bs-navy text-white font-semibold rounded-lg hover:bg-bs-navy-hover text-center">{content.cta}</a>
     </div>
   </form>
 </dialog>
@@ -40,12 +40,12 @@ const { content } = Astro.props
 <style>
   html:has(dialog[open]) {
     overflow: hidden;
-    backdrop-filter: blur(0);
     scrollbar-gutter: stable;
   }
 
   dialog[open]::backdrop {
-    backdrop-filter: blur(50px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
   }
 
   @keyframes scale-up {
@@ -62,7 +62,7 @@ const { content } = Astro.props
     }
 
     dialog[open] {
-      animation: scale-up forwards 1s;
+      animation: scale-up forwards 0.4s;
       animation-timing-function: var(--ease-bs-spring);
     }
   }

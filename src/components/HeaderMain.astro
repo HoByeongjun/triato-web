@@ -1,23 +1,20 @@
 ---
-import Logo from '../assets/theme-images/logo.svg'
-
 const { settings } = Astro.props
 ---
 
-<header class="wrapper font-medium">
-  <!-- Wrapper -->
-  <div class="bs-container py-5 flex justify-between items-center">
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-transparent transition-all duration-200" id="site-header">
+  <div class="bs-container py-4 flex justify-between items-center">
     <!-- Logo -->
     <a class="flex items-center gap-2.5 group" href="/" aria-label="TRIATO - Home">
       <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain group-hover:scale-95 transition-transform duration-200" />
-      <span class="text-base font-bold tracking-wider text-bs-foreground-light hidden sm:block">TRIATO</span>
+      <span class="text-base font-bold tracking-wider text-bs-text hidden sm:block">TRIATO</span>
     </a>
 
     <!-- Nav -->
     <nav class="hidden md:flex mx-auto self-stretch gap-1">
       {
         settings.nav.map((item) => (
-          <a class="px-4 py-2 text-sm text-bs-foreground-dark hover:text-bs-foreground-light transition-colors rounded-lg" href={item.link}>
+          <a class="px-4 py-2 text-sm font-medium text-bs-body hover:text-bs-text transition-colors rounded-lg" href={item.link}>
             {item.title}
           </a>
         ))
@@ -25,8 +22,25 @@ const { settings } = Astro.props
     </nav>
 
     <!-- CTA -->
-    <button type="button" class="bs-btn text-sm px-4 py-2.5 bg-bs-accent text-bs-surface-0 font-semibold hover:bg-[#00b5d3]" onclick="demo.showModal()">
+    <button type="button" class="bs-btn text-sm px-5 py-2.5 bg-bs-navy text-white font-semibold hover:bg-bs-navy-hover rounded-lg" onclick="demo.showModal()">
       {settings.demo.title}
     </button>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById('site-header')
+  let lastScroll = 0
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY
+    if (scrollY > 10) {
+      header?.classList.add('border-black/6')
+      header?.classList.remove('border-transparent')
+    } else {
+      header?.classList.remove('border-black/6')
+      header?.classList.add('border-transparent')
+    }
+    lastScroll = scrollY
+  }, { passive: true })
+</script>

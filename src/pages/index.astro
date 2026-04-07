@@ -3,7 +3,7 @@
 import Layout from "../layouts/Layout.astro"
 
 import HeroSection from "../components/HeroSection.astro"
-import ServicesCarousel from "../components/ServicesCarousel.astro"
+import ServicesSection from "../components/ServicesSection.astro"
 import QuoteSection from "../components/QuoteSection.astro"
 import ProcessSection from "../components/ProcessSection.astro"
 import StrengthsSection from "../components/StrengthsSection.astro"
@@ -27,7 +27,7 @@ import global_settings from "../data/global_settings.json"
     title={ home.hero_title }
   />
 
-  <ServicesCarousel
+  <ServicesSection
     services={ services }
     title={ home.services_title }
   />

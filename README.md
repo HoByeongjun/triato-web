@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# TRIATO 회사 홈페이지
 
-```sh
-npm create astro@latest -- --template minimal
+TRIATO(트리아토) 공식 회사 홈페이지. 화이트 베이스 디자인.
+
+- **도메인**: triato.co.kr
+- **기술 스택**: Astro 6, Tailwind CSS 4, TypeScript
+- **배포**: Cloudflare Pages (자동 배포)
+
+## 로컬 개발
+
+```bash
+npm install
+npm run dev       # http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 빌드
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build     # dist/ 디렉토리에 정적 파일 생성
+npm run preview   # 빌드 결과 로컬 프리뷰
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 디렉토리 구조
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```
+src/
+├── assets/css/     # 스타일 (base, buttons, typography, global)
+├── components/     # Astro 컴포넌트 (Hero, Services, Strengths 등)
+├── data/           # 콘텐츠 데이터 (JSON)
+├── layouts/        # 페이지 레이아웃
+├── pages/          # 라우트 (index.astro)
+└── styles/         # 글로벌 스타일
+public/             # 정적 에셋 (로고, favicon)
+reference/          # 디자인 레퍼런스 및 스펙 문서
+screenshots/        # 디자인 스크린샷
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 배포
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+GitHub `main` 브랜치에 push하면 Cloudflare Pages가 자동 빌드·배포합니다.

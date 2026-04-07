@@ -4,12 +4,14 @@
   --color-cyan: #00C8E8;
   --color-navy: #0F2D78;
   --color-mid: #1A6FBF;
-  --color-bg: #06111F;
-  --color-bg-card: #0B1A2E;
-  --color-bg-card-hover: #0F2238;
-  --color-text: #E8F4FF;
-  --color-muted: #6B8BAE;
-  --color-border: rgba(0, 200, 232, 0.12);
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F8FAFB;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-hover: #F8FAFB;
+  --color-text: #1A1A2E;
+  --color-body: #4A5568;
+  --color-muted: #9CA3AF;
+  --color-border: rgba(0, 0, 0, 0.08);
   --font-sans: 'Pretendard Variable', 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -22,6 +24,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 ::selection {

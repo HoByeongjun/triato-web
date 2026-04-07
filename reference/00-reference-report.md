@@ -242,7 +242,7 @@ Border:       rgba(0,0,0,0.08) 또는 #E5E7EB
 │           TRIATO                                                 │
 │                                                                  │
 │           AI와 자동화로 비즈니스의 실행력을                          │
-│           10배 빠르게 만들어 드립니다.                               │
+│           획기적으로 높여드립니다.                                    │
 │                                                                  │
 │           [프로젝트 문의]  [서비스 알아보기]                         │
 │            (네이비 #0F2D78)   (아웃라인)                            │
@@ -386,19 +386,22 @@ hover: translateY(-2px) + shadow 증가 + 시안 border 전환
 
 | 파일명 | 설명 |
 |--------|------|
-| stripe-hero.png / stripe-full.png | Stripe 히어로/전체 |
-| vercel-hero.png / vercel-full.png | Vercel 히어로/전체 |
-| notion-hero.png / notion-full.png | Notion 히어로/전체 |
-| anthropic-hero.png / anthropic-full.png | Anthropic 히어로/전체 |
-| figma-hero.png / figma-full.png | Figma 히어로/전체 |
-| cal-hero.png / cal-full.png | Cal.com 히어로/전체 |
-| linear-hero.png / linear-full.png | Linear 히어로/전체 (다크 참고용) |
-| toss-hero.png / toss-full.png | 토스 히어로/전체 |
-| channel-hero.png / channel-full.png | 채널톡 히어로/전체 |
-| daangn-hero.png / daangn-full.png | 당근 히어로/전체 |
+| stripe-hero.png / stripe-full.png | Stripe 히어로/전체 (1번) |
+| vercel-hero.png / vercel-full.png | Vercel 히어로/전체 (2번) |
+| notion-hero.png / notion-full.png | Notion 히어로/전체 (3번) |
+| anthropic-hero.png / anthropic-full.png | Anthropic 히어로/전체 (4번) |
+| figma-hero.png / figma-full.png | Figma 히어로/전체 (5번) |
+| cal-hero.png / cal-full.png | Cal.com 히어로/전체 (6번) |
+| toss-hero.png / toss-full.png | 토스 히어로/전체 (7번) |
+| channel-hero.png / channel-full.png | 채널톡 히어로/전체 (8번) |
+| daangn-hero.png / daangn-full.png | 당근 히어로/전체 (9번) |
+| linear-hero.png / linear-full.png | Linear 히어로/전체 — 분석 목록 외 다크 참고용 추가 캡처 |
 | astrowind-hero.png / astrowind-full.png | AstroWind 템플릿 |
 | astroship-hero.png / astroship-full.png | Astroship 템플릿 |
 | astroship-pro-hero.png / astroship-pro-full.png | Astroship Pro 템플릿 |
+
+> **Wanted (10번) 스크린샷 없음**: CloudFront WAF가 헤드리스 브라우저(Playwright)를 차단하여 캡처 불가. 텍스트 분석만 수록. Linear는 분석 목록(1-13번) 외에 화이트↔다크 비교 참고를 위해 추가로 캡처한 파일.  
+> **Allganize, Blend B2B, RayLogue (11-13번) 스크린샷 없음**: 캡처 시도 시 접근 불가 또는 의미 있는 UI 로드 실패. 텍스트 분석만 수록.
 
 ---
 

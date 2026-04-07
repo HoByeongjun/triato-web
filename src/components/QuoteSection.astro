@@ -2,46 +2,19 @@
 const { content, cite, role } = Astro.props
 ---
 
-<!-- Quote -->
-<blockquote class="bs-container bs-mt-lg" id="quote">
-  <div class="max-w-4xl">
-    <!-- Quote mark -->
-    <div class="text-bs-foreground-muted text-6xl font-serif leading-none mb-4 select-none">"</div>
+<section class="bg-bs-navy" id="quote">
+  <div class="bs-container py-20 lg:py-24">
+    <blockquote class="max-w-[720px] mx-auto text-center">
+      <!-- Quote mark -->
+      <div class="text-bs-accent text-5xl font-serif leading-none mb-6 select-none">"</div>
 
-    <!-- Text -->
-    <div set:html={content} class="font-display text-2xl md:text-4xl lg:text-5xl text-bs-foreground-dark bs-st-quote [&_strong]:font-normal leading-snug" />
+      <!-- Text -->
+      <div set:html={content} class="text-white text-lg md:text-[22px] font-normal leading-[1.7] [&_strong]:text-white [&_strong]:font-normal" />
 
-    <!-- Cite -->
-    <cite class="not-italic flex gap-3 items-center mt-8">
-      <div class="h-10 w-10 rounded-full bg-bs-surface-3 border border-bs-border flex items-center justify-center">
-        <span class="text-sm font-semibold text-bs-foreground-dark">BJ</span>
-      </div>
-      <div>
-        <span class="text-base font-medium text-bs-foreground-light">{cite}</span>
-        <span class="text-bs-foreground-muted text-sm ml-2">{role}</span>
-      </div>
-    </cite>
+      <!-- Cite -->
+      <cite class="not-italic block mt-8 text-white/60 text-sm">
+        — {cite}, {role}
+      </cite>
+    </blockquote>
   </div>
-</blockquote>
-
-<style is:global>
-  @keyframes white-text {
-    to {
-      color: var(--color-bs-foreground-light);
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    .bs-st-quote strong {
-      animation: white-text linear;
-      animation-timeline: view(20% block);
-      animation-fill-mode: forwards;
-    }
-  }
-
-  @supports (not (animation-timeline: view())) {
-    .bs-st-quote strong {
-      color: var(--color-bs-foreground-light);
-    }
-  }
-</style>
+</section>
