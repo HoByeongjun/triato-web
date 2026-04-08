@@ -5,16 +5,16 @@ const { title, faq } = Astro.props
 ---
 
 <section class="bg-white" id="faq">
-  <div class="bs-container py-20 lg:py-28">
+  <div class="bs-container py-24 lg:py-32">
     <div class="max-w-[720px] mx-auto">
       <!-- Header -->
-      <div class="text-center mb-12 lg:mb-16">
+      <div class="text-center mb-14 lg:mb-20">
         { title && <h2 class="bs-h2" set:html={ title } />}
-        <p class="text-bs-body mt-4 text-base">궁금한 점이 있으시면 언제든 연락주세요.</p>
+        <p class="text-bs-body mt-5 text-base leading-[1.75]">궁금한 점이 있으시면 언제든 연락주세요.</p>
       </div>
 
       <!-- FAQ items -->
-      <div class="grid gap-2">
+      <div class="grid gap-1">
         { faq.map( (item: { question: string; answer: string }) =>
           <DetailsAccordion question={item.question} answer={item.answer} />
         )}

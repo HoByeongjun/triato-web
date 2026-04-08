@@ -2,26 +2,26 @@
 const { settings } = Astro.props
 ---
 
-<footer class="bg-bs-bg-dark text-white/50" id="footer">
-  <div class="bs-container py-16 lg:pt-16 lg:pb-10">
+<footer class="bg-bs-bg-dark text-white/45" id="footer">
+  <div class="bs-container py-16 lg:pt-20 lg:pb-12">
     <!-- Wrapper -->
-    <div class="grid md:grid-cols-2 gap-10">
+    <div class="grid md:grid-cols-2 gap-12">
 
       <!-- Left col -->
       <div class="flex flex-col gap-5">
         <!-- Logo -->
         <a class="flex items-center gap-3 group" href="#top" aria-label="Back to top">
-          <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
-          <span class="text-base font-bold tracking-wider text-white">TRIATO</span>
+          <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
+          <span class="text-[15px] font-bold tracking-[0.02em] text-white/80">TRIATO</span>
         </a>
 
         <!-- Tagline -->
-        <p class="text-[13px]">행동이 시작되는 곳.</p>
+        <p class="text-[13px] text-white/35">행동이 시작되는 곳.</p>
 
         <!-- Contact -->
-        <div class="flex flex-col gap-1 text-[13px]">
-          <a href="mailto:bjho@triato.co.kr" class="hover:text-white/85 transition-colors">bjho@triato.co.kr</a>
-          <a href="tel:01072071394" class="hover:text-white/85 transition-colors">010-7207-1394</a>
+        <div class="flex flex-col gap-1.5 text-[13px] mt-2">
+          <a href="mailto:bjho@triato.co.kr" class="hover:text-white/70 transition-colors duration-200">bjho@triato.co.kr</a>
+          <a href="tel:01072071394" class="hover:text-white/70 transition-colors duration-200">010-7207-1394</a>
         </div>
       </div>
 
@@ -29,9 +29,9 @@ const { settings } = Astro.props
       <div class="flex gap-16 md:justify-end text-[13px]">
         <!-- Nav -->
         <nav class="flex flex-col">
-          <span class="text-white/35 text-[11px] uppercase tracking-[0.06em] mb-3 font-semibold">메뉴</span>
+          <span class="text-white/25 text-[11px] uppercase tracking-[0.08em] mb-4 font-semibold">메뉴</span>
           { settings.nav.map( (item: { link: string; title: string }) =>
-            <a href={ item.link } class="py-1.5 hover:text-white/85 transition-colors">
+            <a href={ item.link } class="py-1.5 hover:text-white/70 transition-colors duration-200">
               { item.title }
             </a>
           )}
@@ -39,7 +39,7 @@ const { settings } = Astro.props
 
         <!-- Services -->
         <nav class="flex flex-col">
-          <span class="text-white/35 text-[11px] uppercase tracking-[0.06em] mb-3 font-semibold">서비스</span>
+          <span class="text-white/25 text-[11px] uppercase tracking-[0.08em] mb-4 font-semibold">서비스</span>
           <span class="py-1.5">맞춤 개발</span>
           <span class="py-1.5">AI 솔루션</span>
           <span class="py-1.5">자동화</span>
@@ -47,17 +47,17 @@ const { settings } = Astro.props
 
         <!-- Contact -->
         <nav class="flex flex-col">
-          <span class="text-white/35 text-[11px] uppercase tracking-[0.06em] mb-3 font-semibold">연락처</span>
-          <a href="mailto:bjho@triato.co.kr" class="py-1.5 hover:text-white/85 transition-colors">이메일</a>
-          <a href="tel:01072071394" class="py-1.5 hover:text-white/85 transition-colors">전화</a>
+          <span class="text-white/25 text-[11px] uppercase tracking-[0.08em] mb-4 font-semibold">연락처</span>
+          <a href="mailto:bjho@triato.co.kr" class="py-1.5 hover:text-white/70 transition-colors duration-200">이메일</a>
+          <a href="tel:01072071394" class="py-1.5 hover:text-white/70 transition-colors duration-200">전화</a>
         </nav>
       </div>
     </div>
 
     <!-- Colophon -->
-    <aside class="mt-12">
-      <div class="h-px bg-white/8 mb-6"></div>
-      <nav class="flex flex-col sm:flex-row gap-3 justify-between items-center text-xs text-white/30">
+    <aside class="mt-14">
+      <div class="h-px bg-white/[0.06] mb-6"></div>
+      <nav class="flex flex-col sm:flex-row gap-3 justify-between items-center text-xs text-white/25">
         <span>대표: 호병준 | TRIATO</span>
         <span>&copy; 2026 TRIATO. All rights reserved.</span>
       </nav>

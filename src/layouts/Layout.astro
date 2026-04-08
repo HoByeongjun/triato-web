@@ -21,18 +21,28 @@ const { title, description } = Astro.props
 
     <title>{title ?? global_settings.title}</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <meta name="description" content={description ?? global_settings.description} />
-    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="theme-color" content="#0F2D78" />
     <link rel="canonical" href={`https://triato.co.kr${Astro.url.pathname}`} />
 
     <meta property="og:title" content={title ?? global_settings.title} />
     <meta property="og:description" content={description ?? global_settings.description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
+    <meta property="og:url" content={`https://triato.co.kr${Astro.url.pathname}`} />
+    <meta property="og:image" content="https://triato.co.kr/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TRIATO - 행동이 시작되는 곳" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://triato.co.kr/twitter-image.png" />
+    <meta name="twitter:image:alt" content="TRIATO - 행동이 시작되는 곳" />
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link

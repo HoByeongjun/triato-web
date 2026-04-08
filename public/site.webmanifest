@@ -1,0 +1,28 @@
+{
+  "name": "TRIATO - 행동이 시작되는 곳",
+  "short_name": "TRIATO",
+  "description": "자동화 프로젝트 & 앱 개발. 행동이 시작되는 곳, TRIATO.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0F2D78",
+  "background_color": "#FFFFFF",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -2,18 +2,24 @@
 const { content, cite, role } = Astro.props
 ---
 
-<section class="bg-bs-navy" id="quote">
-  <div class="bs-container py-20 lg:py-24">
-    <blockquote class="max-w-[720px] mx-auto text-center">
+<section class="bg-bs-navy relative overflow-hidden" id="quote">
+  <!-- Subtle radial glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-bs-accent/[0.04] blur-3xl"></div>
+
+  <div class="bs-container py-24 lg:py-32 relative">
+    <blockquote class="max-w-[680px] mx-auto text-center">
       <!-- Quote mark -->
-      <div class="text-bs-accent text-5xl font-serif leading-none mb-6 select-none">"</div>
+      <div class="text-bs-accent/40 text-7xl font-serif leading-none mb-8 select-none">&ldquo;</div>
 
       <!-- Text -->
-      <div set:html={content} class="text-white text-lg md:text-[22px] font-normal leading-[1.7] [&_strong]:text-white [&_strong]:font-normal" />
+      <div set:html={content} class="text-white text-lg md:text-[24px] font-light leading-[1.8] [&_strong]:text-white [&_strong]:font-medium" />
+
+      <!-- Divider -->
+      <div class="w-10 h-[2px] bg-bs-accent/30 mx-auto mt-10 mb-8"></div>
 
       <!-- Cite -->
-      <cite class="not-italic block mt-8 text-white/60 text-sm">
-        — {cite}, {role}
+      <cite class="not-italic block text-white/50 text-sm tracking-wide">
+        {cite} &mdash; {role}
       </cite>
     </blockquote>
   </div>

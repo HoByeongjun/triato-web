@@ -10,26 +10,26 @@ const icons = {
 ---
 
 <section class="bg-bs-bg-alt" id="strengths">
-  <div class="bs-container py-20 lg:py-28">
+  <div class="bs-container py-24 lg:py-32">
     <!-- Title -->
-    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+    <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
       {title && <h2 class="bs-h2">{title}</h2>}
     </div>
 
     <!-- Strengths grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
       {strengths.map((item: { icon: keyof typeof icons; title: string; quote: string }) => (
-        <blockquote class="bg-white border border-bs-border rounded-xl p-6 flex flex-col gap-4 hover:shadow-hover hover:border-bs-border-accent transition-all duration-200">
+        <blockquote class="bg-white border border-black/[0.06] rounded-2xl p-7 flex flex-col gap-4 hover:shadow-hover hover:-translate-y-0.5 transition-all duration-300">
           {/* Icon */}
-          <div class="w-10 h-10 rounded-lg bg-bs-accent-dim flex items-center justify-center text-bs-accent">
+          <div class="w-11 h-11 rounded-xl bg-bs-accent-dim flex items-center justify-center text-bs-accent">
             <Fragment set:html={icons[item.icon] || icons.bolt} />
           </div>
 
           {/* Title */}
-          <h3 class="text-lg font-semibold text-bs-text">{item.title}</h3>
+          <h3 class="text-[17px] font-bold text-bs-text tracking-[-0.01em] mt-1">{item.title}</h3>
 
           {/* Quote */}
-          <p class="text-sm text-bs-body leading-relaxed">{item.quote}</p>
+          <p class="text-sm text-bs-body leading-[1.7]">{item.quote}</p>
         </blockquote>
       ))}
     </div>
