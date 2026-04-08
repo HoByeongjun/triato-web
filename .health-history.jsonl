@@ -1,0 +1,2 @@
+{"ts":"2026-04-08T03:55:00Z","branch":"main","score":4.0,"typecheck":4,"lint":null,"test":null,"deadcode":null,"shell":null,"duration_s":5,"errors":11,"warnings":8,"build":"pass"}
+{"ts":"2026-04-08T13:07:00Z","branch":"main","score":10.0,"typecheck":10,"lint":"skipped","test":"skipped","deadcode":"skipped","shell":"skipped","duration_s":3}
