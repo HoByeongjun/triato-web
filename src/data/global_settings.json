@@ -4,9 +4,9 @@
   "social_image": "/logo.png",
   "base_url": "https://triato.co.kr",
   "demo": {
-    "title": "프로젝트 문의",
-    "content": "<strong>프로젝트에 대해 이야기해 주세요.</strong> 어떤 문제를 해결하고 싶은지, 어떤 시스템이 필요한지 알려주시면 빠르게 답변 드리겠습니다.",
-    "cta": "문의하기"
+    "title": "프로젝트 상담",
+    "content": "<strong>어떤 프로젝트인가요?</strong> 어떤 문제를 해결하고 싶은지, 어떤 시스템이 필요한지 알려주시면 빠르게 답변 드리겠습니다.",
+    "cta": "프로젝트 상담하기"
   },
   "theme_color": "#06111F",
   "nav": [
