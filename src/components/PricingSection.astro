@@ -18,7 +18,7 @@ const { title, pricing } = Astro.props
 
     <!-- Item -->
 
-    { pricing.map( ( item, index ) =>
+    { pricing.map( ( item: { title: string; tag: string; content: string; services: { item: string }[]; price: string; cta: string }, index: number ) =>
 
     <article
       class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']}>
@@ -49,7 +49,7 @@ const { title, pricing } = Astro.props
         <!-- Services list -->
         <ul role="list" class="flex flex-col gap-4 my-8">
 
-          { item.services.map( ({ item }) =>
+          { item.services.map( ({ item }: { item: string }) =>
 
             <li class="flex gap-2 md:gap-3 items-center">
 

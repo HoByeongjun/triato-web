@@ -18,7 +18,7 @@ const icons = {
 
     <!-- Strengths grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-      {strengths.map((item, i) => (
+      {strengths.map((item: { icon: keyof typeof icons; title: string; quote: string }) => (
         <blockquote class="bg-white border border-bs-border rounded-xl p-6 flex flex-col gap-4 hover:shadow-hover hover:border-bs-border-accent transition-all duration-200">
           {/* Icon */}
           <div class="w-10 h-10 rounded-lg bg-bs-accent-dim flex items-center justify-center text-bs-accent">

@@ -15,7 +15,7 @@ const { title, faq } = Astro.props
 
       <!-- FAQ items -->
       <div class="grid gap-2">
-        { faq.map( item =>
+        { faq.map( (item: { question: string; answer: string }) =>
           <DetailsAccordion question={item.question} answer={item.answer} />
         )}
       </div>

@@ -30,7 +30,7 @@ const { settings } = Astro.props
         <!-- Nav -->
         <nav class="flex flex-col">
           <span class="text-white/35 text-[11px] uppercase tracking-[0.06em] mb-3 font-semibold">메뉴</span>
-          { settings.nav.map( item =>
+          { settings.nav.map( (item: { link: string; title: string }) =>
             <a href={ item.link } class="py-1.5 hover:text-white/85 transition-colors">
               { item.title }
             </a>

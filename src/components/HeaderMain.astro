@@ -13,7 +13,7 @@ const { settings } = Astro.props
     <!-- Nav -->
     <nav class="hidden md:flex mx-auto self-stretch gap-1">
       {
-        settings.nav.map((item) => (
+        settings.nav.map((item: { link: string; title: string }) => (
           <a class="px-4 py-2 text-sm font-medium text-bs-body hover:text-bs-text transition-colors rounded-lg" href={item.link}>
             {item.title}
           </a>
@@ -30,17 +30,14 @@ const { settings } = Astro.props
 
 <script>
   const header = document.getElementById('site-header')
-  let lastScroll = 0
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY
-    if (scrollY > 10) {
+    if (window.scrollY > 10) {
       header?.classList.add('border-black/6')
       header?.classList.remove('border-transparent')
     } else {
       header?.classList.remove('border-black/6')
       header?.classList.add('border-transparent')
     }
-    lastScroll = scrollY
   }, { passive: true })
 </script>
