@@ -1,18 +1,28 @@
 @import "tailwindcss";
 @reference "./global.css";
 
+/* DESIGN.md v2 typography scale — Editorial-Operator */
+
 .bs-h1 {
-  @apply font-display font-extrabold text-balance text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.035em] text-bs-text;
+  @apply font-display font-bold text-balance text-[40px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-[-0.03em] text-bs-text;
 }
 
 .bs-h2 {
-  @apply font-display font-bold text-balance text-[28px] md:text-[42px] leading-[1.15] tracking-[-0.025em] text-bs-text;
+  @apply font-display font-semibold text-balance text-[28px] md:text-[36px] lg:text-[40px] leading-[1.2] tracking-[-0.02em] text-bs-text;
 }
 
 .bs-h3 {
-  @apply font-display font-semibold text-balance text-lg md:text-[22px] leading-[1.3] tracking-[-0.015em] text-bs-text;
+  @apply font-display font-semibold text-balance text-lg md:text-[22px] leading-[1.3] tracking-[-0.01em] text-bs-text;
 }
 
 .bs-body-text {
-  @apply leading-[1.75] text-bs-body;
+  @apply leading-[1.7] text-bs-body;
+}
+
+.bs-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-bs-muted);
 }

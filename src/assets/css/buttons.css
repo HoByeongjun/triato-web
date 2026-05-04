@@ -4,15 +4,13 @@
 .bs-btn {
   @apply
     active:translate-y-[0.5px]
-    duration-300
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-bs-accent/50
-    focus-visible:ring-offset-2
+    duration-200
+    focus-visible:outline-2
+    focus-visible:outline-bs-accent
+    focus-visible:outline-offset-2
+    focus-visible:outline
     font-semibold
-    px-5
-    py-4
-    rounded-xl
+    rounded-lg
     text-center
     transition-all
     cursor-pointer

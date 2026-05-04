@@ -2,59 +2,65 @@
 const { settings, title, content } = Astro.props
 ---
 
-<section class="bg-white relative overflow-hidden">
-  <!-- Subtle background texture -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #0F2D78 1px, transparent 0); background-size: 32px 32px;"></div>
+<section class="relative max-w-[1440px] mx-auto px-6 md:px-20 pt-[120px] pb-16 md:pt-[140px] md:pb-24 grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-16 items-center min-h-[640px]">
+  <div class="hero-blob absolute inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
 
-  <div class="bs-container pt-20 pb-24 lg:pt-32 lg:pb-36 flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20 relative">
-    <!-- Content -->
-    <div class="flex flex-col gap-6 lg:max-w-2xl w-full">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-bs-border bg-white text-[13px] text-bs-body self-start shadow-card">
-        <span class="w-1.5 h-1.5 rounded-full bg-bs-accent animate-pulse"></span>
-        <span class="font-medium">Trigger</span>
-        <svg class="w-3 h-3 text-bs-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-        <span class="font-medium">Action</span>
-      </div>
-
-      <!-- Title -->
-      <h1 class="bs-h1" set:html={title} />
-
-      <!-- Content -->
-      <div class="text-base lg:text-[17px] leading-[1.75] text-bs-body max-w-[480px] flex flex-col gap-3" set:html={content} />
-
-      <!-- CTA -->
-      <div class="flex gap-3 mt-6">
-        <button type="button" class="bs-btn self-start bg-bs-navy text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-bs-navy-hover hover:-translate-y-0.5 hover:shadow-hover transition-all duration-300" onclick="demo.showModal()">
-          {settings.demo.cta}
-        </button>
-        <a href="/#services" class="bs-btn self-start border-[1.5px] border-black/10 text-bs-text px-8 py-3.5 rounded-xl hover:border-black/20 hover:bg-black/[0.02] transition-all duration-300">
-          서비스 보기
-        </a>
-      </div>
+  <!-- 좌: 텍스트 (좌측 정렬) -->
+  <div class="flex flex-col items-start gap-6 lg:gap-7 max-w-[600px]">
+    <!-- E. 카테고리 배지 -->
+    <div class="hero-stagger hero-stagger-1 inline-flex items-center px-4 py-2 rounded-full bg-bs-accent-dim border border-bs-border-accent">
+      <span class="text-[13px] font-semibold text-bs-accent uppercase tracking-[0.06em]">AI 팀 · 기획부터 운영까지</span>
     </div>
 
-    <!-- Visual element -->
-    <div class="flex-1 hidden lg:flex place-content-end lg:pl-8">
-      <div class="relative w-full max-w-lg">
-        <!-- Main photo -->
-        <img
-          src="/images/hero-visual.jpg"
-          alt="TRIATO 개발팀 워크스페이스 — 노트북으로 작업 중인 개발자"
-          class="w-full rounded-2xl object-cover shadow-hover border border-black/[0.06]"
-          style="aspect-ratio: 3/2;"
-        />
-        <!-- Accent corner decoration -->
-        <div class="absolute -bottom-5 -right-5 w-28 h-28 rounded-2xl bg-bs-accent/6 -z-10"></div>
-        <div class="absolute -top-5 -left-5 w-20 h-20 rounded-xl bg-bs-navy/[0.03] -z-10"></div>
-        <!-- Small floating badge -->
-        <div class="absolute -bottom-4 left-8 bg-white border border-black/[0.06] rounded-xl px-5 py-3 shadow-hover flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-bs-accent"></span>
-          <span class="text-[13px] font-semibold text-bs-text tracking-[-0.01em]">AI + 풀스택</span>
-        </div>
-      </div>
+    <!-- A. h1 stagger + B. TRIATO 그라디언트 (home.json span) -->
+    <h1 class="hero-stagger hero-stagger-2 text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.05] tracking-[-0.03em] text-bs-text" set:html={title} />
+
+    <div class="hero-stagger hero-stagger-3 text-[16px] lg:text-[18px] leading-[1.65] text-bs-body max-w-[44ch] [&>p]:m-0 [&_strong]:text-bs-text [&_strong]:font-semibold" set:html={content} />
+
+    <div class="hero-stagger hero-stagger-4 flex flex-col sm:flex-row gap-3 mt-1">
+      <button type="button" class="cta-accent inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[14px] font-bold tracking-[0.02em] shadow-card" onclick="demo.showModal()">
+        {settings.demo.cta}
+      </button>
+      <a class="cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded-full text-[14px] font-semibold tracking-[0.02em]" href="#services">
+        서비스 보기
+      </a>
     </div>
+
+    <p class="hero-stagger hero-stagger-5 text-[13px] text-bs-muted">평균 24시간 이내 응답 · 무료 상담</p>
   </div>
+
+  <!-- 우: 영상 (작게, 글래스 패널) -->
+  <aside class="hero-stagger hero-stagger-3 relative w-full max-w-[480px] lg:max-w-none lg:justify-self-end">
+    <div class="absolute -inset-4 -z-10 rounded-[28px] bg-gradient-to-br from-bs-accent/15 via-white to-bs-navy/10 blur-xl" aria-hidden="true"></div>
+    <div class="glass-panel glass-panel-deep rounded-[20px] overflow-hidden bg-white">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster="/images/hero-main2-poster.png"
+        class="hero-video2 w-full h-auto block"
+        aria-hidden="true"
+      >
+        <source src="/videos/hero-main2.webm" type="video/webm" />
+        <source src="/videos/hero-main2.mp4" type="video/mp4" />
+      </video>
+      <img
+        src="/images/hero-main2-poster.png"
+        alt="TRIATO 자동화 데모"
+        class="hero-video2-fallback w-full h-auto block"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </aside>
 </section>
+
+<style>
+  .hero-video2-fallback { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video2 { display: none; }
+    .hero-video2-fallback { display: block; }
+  }
+</style>

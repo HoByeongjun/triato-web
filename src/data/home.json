@@ -1,12 +1,12 @@
 {
-  "hero_title": "행동이 시작되는 곳,<br><span class='text-bs-accent'>TRIATO</span>",
-  "hero_content": "<p>기획, 개발, 디자인, 마케팅. 역할이 나뉜 AI 팀이 처음부터 끝까지 함께 합니다.</p>",
+  "hero_title": "행동이 시작되는 곳,<br><span class='hero-wordmark'>TRIATO</span>",
+  "hero_content": "<p>기획·개발·디자인·마케팅까지, AI 팀이 한 곳에서.</p>",
   "services_title": "고객의 문제에 전문가 팀이 직접 붙습니다",
   "process_title": "프로젝트 진행 방식",
   "strengths_title": "왜 TRIATO인가요?",
   "case_studies_title": "이렇게 일합니다",
   "faq_title": "자주 묻는 질문",
-  "quote_content": "<strong>아이디어</strong>를 <strong>현실</strong>로 만드는 것. 그것이 <strong>트리거</strong>입니다. 문제를 <strong>정의</strong>하고, 솔루션을 <strong>설계</strong>하고, <strong>빠르게 실행</strong>합니다. 우리는 <strong>행동</strong>하는 팀입니다.",
+  "quote_content": "<strong>아이디어</strong>를 <strong>현실</strong>로 만드는 것. 그것이 <strong class='quote-highlight'>트리거</strong>입니다. 문제를 <strong>정의</strong>하고, 솔루션을 <strong>설계</strong>하고, <strong>빠르게 실행</strong>합니다. 우리는 <strong class='quote-highlight'>행동</strong>하는 팀입니다.",
   "quote_cite": "호병준",
   "quote_role": "대표, TRIATO"
 }

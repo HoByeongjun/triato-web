@@ -2,25 +2,19 @@
 const { content, cite, role } = Astro.props
 ---
 
-<section class="bg-bs-navy relative overflow-hidden" id="quote">
-  <!-- Subtle radial glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-bs-accent/[0.04] blur-3xl"></div>
+<section class="max-w-[1440px] mx-auto px-6 md:px-20 py-20" id="quote">
+  <div class="motion-trigger glass-panel glass-panel-deep rounded-[32px] p-10 md:p-16 lg:p-20 text-center relative overflow-hidden">
+    <!-- decorative quote mark -->
+    <div class="absolute top-[-40px] left-[40px] text-bs-accent/25 text-[180px] leading-none pointer-events-none font-extrabold select-none" aria-hidden="true">"</div>
 
-  <div class="bs-container py-24 lg:py-32 relative">
-    <blockquote class="max-w-[680px] mx-auto text-center">
-      <!-- Quote mark -->
-      <div class="text-bs-accent/40 text-7xl font-serif leading-none mb-8 select-none">&ldquo;</div>
+    <div
+      set:html={content}
+      class="text-[28px] md:text-[36px] lg:text-[40px] font-bold leading-[1.25] tracking-[-0.02em] text-bs-text mb-8 relative z-10 [&_strong]:text-bs-accent [&_strong]:font-bold"
+    />
 
-      <!-- Text -->
-      <div set:html={content} class="text-white text-lg md:text-[24px] font-light leading-[1.8] [&_strong]:text-white [&_strong]:font-medium" />
-
-      <!-- Divider -->
-      <div class="w-10 h-[2px] bg-bs-accent/30 mx-auto mt-10 mb-8"></div>
-
-      <!-- Cite -->
-      <cite class="not-italic block text-white/50 text-sm tracking-wide">
-        {cite} &mdash; {role}
-      </cite>
-    </blockquote>
+    <div class="flex flex-col items-center gap-1 relative z-10">
+      <p class="text-[14px] font-semibold text-bs-text">{cite}</p>
+      <p class="text-[14px] text-bs-body">{role}</p>
+    </div>
   </div>
 </section>

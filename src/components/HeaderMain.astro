@@ -2,42 +2,26 @@
 const { settings } = Astro.props
 ---
 
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-2xl border-b border-transparent transition-all duration-300" id="site-header">
-  <div class="bs-container py-4 flex justify-between items-center">
+<header class="fixed top-0 w-full z-50 border-b border-bs-border bg-white/80 backdrop-blur-2xl" id="site-header">
+  <nav class="flex justify-between items-center max-w-[1440px] mx-auto px-6 md:px-20 py-5 gap-6">
     <!-- Logo -->
-    <a class="flex items-center gap-2.5 group" href="/" aria-label="TRIATO - Home">
+    <a class="inline-flex items-center gap-2.5 group" href="/" aria-label="TRIATO - 홈">
       <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain group-hover:scale-95 transition-transform duration-200" />
-      <span class="text-[15px] font-bold tracking-[0.02em] text-bs-text hidden sm:block">TRIATO</span>
+      <span class="text-[20px] font-extrabold tracking-[-0.01em] text-bs-text">TRIATO</span>
     </a>
 
     <!-- Nav -->
-    <nav class="hidden md:flex mx-auto self-stretch gap-0.5">
-      {
-        settings.nav.map((item: { link: string; title: string }) => (
-          <a class="px-4 py-2 text-sm font-medium text-bs-body hover:text-bs-text transition-colors duration-200 rounded-lg" href={item.link}>
-            {item.title}
-          </a>
-        ))
-      }
-    </nav>
+    <div class="hidden md:flex items-center gap-8">
+      {settings.nav.map((item: { link: string; title: string }) => (
+        <a class="text-[15px] font-medium text-bs-body hover:text-bs-text transition-colors duration-200" href={item.link}>
+          {item.title}
+        </a>
+      ))}
+    </div>
 
     <!-- CTA -->
-    <button type="button" class="bs-btn text-sm px-5 py-2.5 bg-bs-navy text-white font-semibold hover:bg-bs-navy-hover rounded-xl transition-all duration-200" onclick="demo.showModal()">
+    <button type="button" class="cta-navy hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[13px] font-semibold tracking-[0.02em]" onclick="demo.showModal()">
       {settings.demo.title}
     </button>
-  </div>
+  </nav>
 </header>
-
-<script>
-  const header = document.getElementById('site-header')
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header?.classList.add('border-black/[0.06]')
-      header?.classList.remove('border-transparent')
-    } else {
-      header?.classList.remove('border-black/[0.06]')
-      header?.classList.add('border-transparent')
-    }
-  }, { passive: true })
-</script>

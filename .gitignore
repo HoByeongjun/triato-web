@@ -23,3 +23,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+.gstack/
+
+# 임시 작업 폴더 (figma 시안, 빌드 스크래치)
+tmp/
+
+# 디자인 비교용 정적 페이지 (production 배포 안 함)
+public/preview.html
