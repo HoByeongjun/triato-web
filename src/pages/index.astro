@@ -4,11 +4,13 @@ import Layout from "../layouts/Layout.astro"
 import HeroSection from "../components/HeroSection.astro"
 import ServicesSection from "../components/ServicesSection.astro"
 import QuoteSection from "../components/QuoteSection.astro"
+import StrengthsSection from "../components/StrengthsSection.astro"
 import ProcessSection from "../components/ProcessSection.astro"
 import FaqSection from "../components/FaqSection.astro"
 import ContactSection from "../components/ContactSection.astro"
 
 import services from "../data/services.json"
+import strengths from "../data/strengths.json"
 import faq from "../data/faq.json"
 import home from "../data/home.json"
 import global_settings from "../data/global_settings.json"
@@ -31,6 +33,11 @@ import global_settings from "../data/global_settings.json"
     cite={home.quote_cite}
     content={home.quote_content}
     role={home.quote_role}
+  />
+
+  <StrengthsSection
+    strengths={strengths}
+    title={home.strengths_title}
   />
 
   <ProcessSection
