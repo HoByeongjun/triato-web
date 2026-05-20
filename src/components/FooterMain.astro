@@ -2,45 +2,106 @@
 const { settings } = Astro.props
 ---
 
-<footer class="w-full border-t border-bs-border bg-white" id="footer">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1440px] mx-auto px-6 md:px-20 py-16 md:py-20">
-
-    <!-- Brand -->
-    <div class="md:col-span-1 flex flex-col gap-3">
-      <a class="inline-flex items-center gap-2.5 group self-start" href="#top" aria-label="페이지 상단으로">
-        <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain group-hover:scale-95 transition-transform duration-200" />
-        <span class="text-[20px] font-extrabold tracking-[-0.01em] text-bs-text">TRIATO</span>
+<footer class="tri-footer" id="footer">
+  <div class="tri-footer__inner">
+    <div class="tri-footer__brand">
+      <a href="#top" aria-label="페이지 상단으로">
+        <img src="/logo.png" alt="TRIATO" />
       </a>
-      <p class="text-[15px] text-bs-body mt-3">행동이 시작되는 곳.</p>
-      <p class="text-[14px] text-bs-muted">© 2026 TRIATO.</p>
+      <p>행동이 시작되는 곳. AI 속도와 사람의 판단으로 프로젝트를 끝까지 굴립니다.</p>
+      <small>© 2026 TRIATO.</small>
     </div>
 
-    <!-- Contact -->
-    <div class="md:col-span-1">
-      <h4 class="text-[12px] font-semibold text-bs-text mb-5 uppercase tracking-[0.08em]">연락처</h4>
-      <ul class="space-y-3">
-        <li><a class="text-[15px] text-bs-body hover:text-bs-text transition-colors duration-200" href="mailto:bjho@triato.co.kr">bjho@triato.co.kr</a></li>
-        <li><a class="text-[15px] text-bs-body hover:text-bs-text transition-colors duration-200" href="tel:01072071394">010-7207-1394</a></li>
-      </ul>
-    </div>
-
-    <!-- Menu -->
-    <div class="md:col-span-1">
-      <h4 class="text-[12px] font-semibold text-bs-text mb-5 uppercase tracking-[0.08em]">메뉴</h4>
-      <ul class="space-y-3">
+    <div>
+      <h4>Menu</h4>
+      <ul>
         {settings.nav.map((item: { link: string; title: string }) => (
-          <li><a class="text-[15px] text-bs-body hover:text-bs-text transition-colors duration-200" href={item.link}>{item.title}</a></li>
+          <li><a href={item.link}>{item.title}</a></li>
         ))}
       </ul>
     </div>
 
-    <!-- Company -->
-    <div class="md:col-span-1">
-      <h4 class="text-[12px] font-semibold text-bs-text mb-5 uppercase tracking-[0.08em]">회사</h4>
-      <ul class="space-y-3">
-        <li class="text-[15px] text-bs-body">대표 호병준</li>
-        <li class="text-[15px] text-bs-body">서울, 대한민국</li>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:bjho@triato.co.kr">bjho@triato.co.kr</a></li>
+        <li><a href="tel:01072071394">010-7207-1394</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li>대표 호병준</li>
+        <li>Seoul, Korea</li>
       </ul>
     </div>
   </div>
 </footer>
+
+<style>
+  .tri-footer {
+    background: #000;
+    color: #f5f5f7;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+
+  .tri-footer__inner {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 52px 0 64px;
+    display: grid;
+    grid-template-columns: 1.5fr .7fr .9fr .7fr;
+    gap: 42px;
+  }
+
+  .tri-footer img {
+    width: 128px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .tri-footer p {
+    max-width: 360px;
+    margin: 18px 0 16px;
+    color: rgba(245,245,247,.56);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  .tri-footer small,
+  .tri-footer li,
+  .tri-footer a {
+    color: rgba(245,245,247,.48);
+    font-size: 14px;
+  }
+
+  .tri-footer h4 {
+    margin: 3px 0 18px;
+    color: rgba(245,245,247,.84);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .tri-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .tri-footer a { transition: color .2s ease; }
+  .tri-footer a:hover { color: #fff; }
+
+  @media (max-width: 860px) {
+    .tri-footer__inner { grid-template-columns: 1fr 1fr; }
+    .tri-footer__brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 540px) {
+    .tri-footer__inner { width: min(100% - 28px, 1180px); grid-template-columns: 1fr; }
+  }
+</style>

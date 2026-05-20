@@ -1,7 +1,7 @@
 {
   "title": "TRIATO | 행동이 시작되는 곳",
-  "description": "TRIATO는 자동화 프로젝트와 앱 개발을 통해 비즈니스의 행동을 시작합니다. AI 기반 업무 자동화부터 맞춤 소프트웨어 개발까지.",
-  "social_image": "/logo.png",
+  "description": "TRIATO는 웹/앱, 내부 대시보드, 업무 자동화, AI 에이전트 운영을 한 팀처럼 설계하고 짧은 사이클로 런칭합니다.",
+  "social_image": "/og-image.png",
   "base_url": "https://triato.co.kr",
   "demo": {
     "title": "프로젝트 상담",

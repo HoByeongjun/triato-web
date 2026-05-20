@@ -78,7 +78,7 @@ const { title, description } = Astro.props
 
   <body id="top" class="antialiased" style="font-family: 'Pretendard Variable', 'Pretendard', var(--font-body)">
     <!-- Skip link -->
-    <a class="fixed -top-20 focus-visible:top-0 p-3 bg-bs-accent text-white transition-all duration-300 z-50" href="#main">본문으로 건너뛰기</a>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 
     <!-- Header -->
     <HeaderMain settings={global_settings} />
@@ -102,6 +102,7 @@ const { title, description } = Astro.props
         if (mq.matches) return; // 모션 줄인 사용자엔 즉시 보임 (CSS에서 처리)
 
         const init = () => {
+          document.documentElement.classList.add('motion-ready');
           const targets = document.querySelectorAll('.motion-trigger, strong.quote-highlight');
           if (targets.length === 0) return;
           const io = new IntersectionObserver((entries) => {
@@ -122,3 +123,26 @@ const { title, description } = Astro.props
     </script>
   </body>
 </html>
+
+<style is:global>
+  .skip-link {
+    position: fixed;
+    top: -96px;
+    left: 12px;
+    z-index: 100;
+    padding: 12px 14px;
+    border-radius: 999px;
+    background: #00c8e8;
+    color: #041014;
+    font-weight: 800;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, .22);
+    transition: top .2s ease;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    top: 12px;
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+</style>

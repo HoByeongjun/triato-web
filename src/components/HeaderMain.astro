@@ -2,26 +2,104 @@
 const { settings } = Astro.props
 ---
 
-<header class="fixed top-0 w-full z-50 border-b border-bs-border bg-white/80 backdrop-blur-2xl" id="site-header">
-  <nav class="flex justify-between items-center max-w-[1440px] mx-auto px-6 md:px-20 py-5 gap-6">
-    <!-- Logo -->
-    <a class="inline-flex items-center gap-2.5 group" href="/" aria-label="TRIATO - 홈">
-      <img src="/logo-symbol.png" alt="TRIATO" class="w-8 h-8 object-contain group-hover:scale-95 transition-transform duration-200" />
-      <span class="text-[20px] font-extrabold tracking-[-0.01em] text-bs-text">TRIATO</span>
+<header class="site-chrome" id="site-header">
+  <nav class="site-chrome__nav" aria-label="주요 메뉴">
+    <a class="site-chrome__brand" href="/" aria-label="TRIATO - 홈">
+      <img src="/logo-symbol.png" alt="" class="site-chrome__symbol" />
+      <span class="site-chrome__wordmark">TRIATO</span>
     </a>
 
-    <!-- Nav -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="site-chrome__links">
       {settings.nav.map((item: { link: string; title: string }) => (
-        <a class="text-[15px] font-medium text-bs-body hover:text-bs-text transition-colors duration-200" href={item.link}>
-          {item.title}
-        </a>
+        <a href={item.link}>{item.title}</a>
       ))}
     </div>
 
-    <!-- CTA -->
-    <button type="button" class="cta-navy hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[13px] font-semibold tracking-[0.02em]" onclick="demo.showModal()">
-      {settings.demo.title}
+    <button type="button" class="site-chrome__cta" onclick="demo.showModal()">
+      30분 상담하기
     </button>
   </nav>
 </header>
+
+<style>
+  .site-chrome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(8, 10, 14, .62);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: saturate(180%) blur(22px);
+    -webkit-backdrop-filter: saturate(180%) blur(22px);
+  }
+
+  .site-chrome__nav {
+    width: min(1180px, calc(100% - 40px));
+    height: 64px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .site-chrome__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .site-chrome__symbol {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .site-chrome__wordmark {
+    color: #f5f5f7;
+    font-size: 18px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .site-chrome__links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .site-chrome__links a {
+    color: rgba(245,245,247,.72);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    transition: color .2s ease;
+  }
+
+  .site-chrome__links a:hover { color: #fff; }
+  .site-chrome__brand:focus-visible,
+  .site-chrome__links a:focus-visible,
+  .site-chrome__cta:focus-visible { outline: 3px solid #00c8e8; outline-offset: 4px; }
+
+  .site-chrome__cta {
+    border: 0;
+    min-height: 36px;
+    border-radius: 999px;
+    padding: 0 16px;
+    background: rgba(245,245,247,.94);
+    color: #05070b;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    cursor: pointer;
+  }
+
+  @media (max-width: 760px) {
+    .site-chrome__nav { width: min(100% - 28px, 1180px); height: 58px; }
+    .site-chrome__links { display: none; }
+    .site-chrome__wordmark { font-size: 17px; }
+  }
+</style>
